@@ -1,0 +1,4 @@
+__pycache__
+*.json
+.idea
+.DS_Store
