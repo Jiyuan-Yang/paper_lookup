@@ -4,7 +4,9 @@ from exec.init_exec import init_exec
 from exec.env_exec import env_exec
 from exec.import_exec import import_exec
 from exec.find_exec import find_exec
+from exec.open_exec import open_exec
 from utils.output import notify_print
+
 
 parser = argparse.ArgumentParser(description='Paper Lookup, an easier way to manage your papers.')
 parser.add_argument('-v', '--version', action='store_true', help='print version info')
@@ -61,6 +63,8 @@ elif sub_parser_name == 'import':
     import_exec(args)
 elif sub_parser_name == 'find':
     find_exec(args)
+elif sub_parser_name == 'open':
+    open_exec(args)
 else:
     if args.version:
         print('Paper Lookup version 1.0.0')
