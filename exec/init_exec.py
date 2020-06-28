@@ -6,10 +6,10 @@ from utils.meta_params import config_file_name, db_file_name
 
 
 def init_exec():
-    try:
-        os.listdir().index(config_file_name)
+    if os.path.exists(config_file_name):
+        # os.listdir().index(config_file_name)
         notify_print('warning', 'Configuration file already exists.')
-    except ValueError:
+    else:
         notify_print('info', 'Initializing configuration file.')
 
         while True:

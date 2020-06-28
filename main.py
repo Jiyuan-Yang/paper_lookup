@@ -56,6 +56,11 @@ parser_export.add_argument('id', help='the id of paper to export the correspondi
 
 args = parser.parse_args()
 
+if len(sys.argv) <= 1:
+    notify_print('error', 'Invalid command.')
+    parser.print_help()
+    exit(0)
+
 sub_parser_name = sys.argv[1]
 
 if sub_parser_name == 'init':

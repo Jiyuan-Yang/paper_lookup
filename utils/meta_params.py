@@ -1,7 +1,7 @@
 import os
 import json
 
-config_file_name = 'config.json'
+config_file_name = '/Users/yangjiyuan/Desktop/projects/paper_lookup/config.json'
 db_file_name = 'db.json'
 
 
