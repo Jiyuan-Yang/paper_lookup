@@ -2,7 +2,7 @@ import os
 import json
 from utils.output import notify_print
 from utils.path_validation_check import check_root_path, check_backup_path
-from utils.meta_params import config_file_name
+from utils.meta_params import config_file_name, db_file_name
 
 
 def init_exec():
@@ -30,5 +30,9 @@ def init_exec():
 
         with open(config_file_name, 'w') as f:
             json.dump(config_dict, f, indent=2)
+
+        os.mkdir(os.path.join(root_path, 'bib_backup'))
+        with open(os.path.join(root_path, db_file_name), 'w') as f:
+            json.dump([], f)
         notify_print('success', 'Initialization finished!')
 

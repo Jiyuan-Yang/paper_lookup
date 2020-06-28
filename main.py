@@ -5,7 +5,7 @@ from exec.env_exec import env_exec
 from exec.import_exec import import_exec
 
 parser = argparse.ArgumentParser(description='Paper Lookup, an easier way to manage your papers.')
-sub_parsers = parser.add_subparsers(help='sub exec for Paper Lookup')
+sub_parsers = parser.add_subparsers(help='sub parsers for Paper Lookup')
 
 parser_init = sub_parsers.add_parser('init', help='initialize a configuration file')
 
@@ -18,6 +18,10 @@ parser_import = sub_parsers.add_parser('import', help='import papers, paper and 
                                                       ' some_paper.pdf, bib: some_paper.bib)')
 parser_import.add_argument('-s', '--single', help='import single paper, -s [paper path]')
 parser_import.add_argument('-f', '--folder', help='import all papers in a folder, -s [paper path]')
+parser_import.add_argument('-t', '--tags', help='add tags for the papers, tags should not '
+                                                'contain space, you could use \'-\' to'
+                                                'replace the space and please use \';\'to'
+                                                'split tags.')
 parser_import.add_argument('-nb', '--no-bib', action='store_true',
                            help='if there is no bib file, use this flag')
 
@@ -30,4 +34,4 @@ if sub_parser_name == 'init':
 elif sub_parser_name == 'env':
     env_exec(args, parser_env)
 elif sub_parser_name == 'import':
-    import_exec(args, parser_import)
+    import_exec(args)

@@ -3,7 +3,7 @@ import json
 from utils.output import notify_print
 
 
-def bib_parser(bib_string: str) -> str:
+def bib_parser(bib_string: str) -> dict:
     # use re.S flag to match more than one line
     basic_regexp = re.compile(r'@(?P<type>.*?){(?P<content>.*)}', re.S)
     basic_res = re.search(basic_regexp, bib_string)
@@ -35,7 +35,7 @@ def bib_parser(bib_string: str) -> str:
         'name': bib_name,
         'items': bib_item_dict
     }
-    return json.dumps(bib_dict, indent=2)
+    return bib_dict
 
 
 def bib_gen(bib_dict: dict) -> str:
