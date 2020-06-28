@@ -31,13 +31,13 @@ def find_result_print(find_result_list: list, **kwargs):
     name: list = kwargs.get('name', None)
     author: list = kwargs.get('author', None)
     tags: list = kwargs.get('tags', None)
-    print(' {:4} | {:20} | {:10} | {:10} '.format('id', 'title', 'author', 'tags'))
+    print(' {:4} | {:25} | {:15} | {:15} '.format('id', 'title', 'author', 'tags'))
     for item in find_result_list:
         item_id, item_name, item_author, item_tags = item
-        item_name = chop_max_len(item_name, 20)
-        item_author = chop_max_len(item_author, 10)
-        item_tags = chop_max_len(';'.join(item_tags), 10)
-        print(' {:4} | {:20} | {:10} | {:10} '.format(
+        item_name = chop_max_len(item_name, 25)
+        item_author = chop_max_len(item_author, 15)
+        item_tags = chop_max_len(';'.join(item_tags), 15)
+        print(' {:4} | {:25} | {:15} | {:15} '.format(
             item_id, item_name, item_author, item_tags))
 
 
