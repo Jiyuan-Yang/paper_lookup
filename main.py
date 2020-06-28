@@ -5,6 +5,9 @@ from exec.env_exec import env_exec
 from exec.import_exec import import_exec
 from exec.find_exec import find_exec
 from exec.open_exec import open_exec
+from exec.backup_exec import backup_exec
+from exec.export_exec import export_exec
+
 from utils.output import notify_print
 
 
@@ -65,6 +68,10 @@ elif sub_parser_name == 'find':
     find_exec(args)
 elif sub_parser_name == 'open':
     open_exec(args)
+elif sub_parser_name == 'export':
+    export_exec(args)
+elif sub_parser_name == 'backup':
+    backup_exec()
 else:
     if args.version:
         print('Paper Lookup version 1.0.0')
