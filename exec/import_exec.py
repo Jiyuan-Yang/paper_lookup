@@ -77,12 +77,18 @@ def import_single(folder: str, file: str, root_path: str) -> dict or None:
                 notify_print('info', f'Using title {title} as the new file name.')
                 shutil.copy(os.path.join(folder, file),
                             os.path.join(root_path, title + os.path.splitext(file)[-1]))
+                shutil.copy(bib_path,
+                            os.path.join(root_path, 'bib_backup', title + '.bib'))
             elif name:
                 name = name.strip().replace(' ', '-')
                 notify_print('info', f'Using name {name} as the new file name.')
+                shutil.copy(bib_path,
+                            os.path.join(root_path, 'bib_backup', name + '.bib'))
                 shutil.copy(os.path.join(folder, file),
                             os.path.join(root_path, name + os.path.splitext(file)[-1]))
             else:
                 notify_print('warning', f'Using the original file name {file}.')
                 shutil.copy(os.path.join(folder, file), os.path.join(root_path, file))
+                shutil.copy(bib_path,
+                            os.path.join(root_path, 'bib_backup', os.path.splitext(file)[0] + '.bib'))
             return bib_dict

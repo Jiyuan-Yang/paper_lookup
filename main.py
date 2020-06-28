@@ -3,8 +3,11 @@ import argparse
 from exec.init_exec import init_exec
 from exec.env_exec import env_exec
 from exec.import_exec import import_exec
+from utils.output import notify_print
 
 parser = argparse.ArgumentParser(description='Paper Lookup, an easier way to manage your papers.')
+parser.add_argument('-v', '--version', action='store_true', help='print version info')
+
 sub_parsers = parser.add_subparsers(help='sub parsers for Paper Lookup')
 
 parser_init = sub_parsers.add_parser('init', help='initialize a configuration file')
@@ -35,3 +38,9 @@ elif sub_parser_name == 'env':
     env_exec(args, parser_env)
 elif sub_parser_name == 'import':
     import_exec(args)
+else:
+    if args.version:
+        print('Paper Lookup version 1.0.0')
+    else:
+        notify_print('error', 'Invalid command.')
+        parser.print_help()
