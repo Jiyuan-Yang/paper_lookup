@@ -1,16 +1,25 @@
+import sys
 import argparse
-from init import init_config
+import json
+from parsers.init_parser import init_parser
+from parsers.env_parser import env_parser
 
+parser = argparse.ArgumentParser(description='Paper Lookup, an easier way to manage your papers.')
+# parser.add_argument('operation', default='', help='select an operation')
+sub_parsers = parser.add_subparsers(help='sub parsers for Paper Lookup')
 
-cmd_parser = argparse.ArgumentParser(description='Paper Lookup, an easier way to manage your papers.')
-cmd_parser.add_argument('operation', default='', help='select an operation')
-cmd_parser.add_argument('other', nargs=argparse.REMAINDER)
+parser_init = sub_parsers.add_parser('init', help='initialize a configuration file')
 
-args = cmd_parser.parse_args()
-operation = args.operation
+parser_env = sub_parsers.add_parser('env', help='edit env arg')
+parser_env.add_argument('-r', '--reset', help='reset an env arg')
+parser_env.add_argument('-s', '--set', nargs=2, help='set [env arg] [new value]')
 
+args = parser.parse_args()
 
-if operation == 'init':
-    init_config()
-elif operation == 'env':
-    pass
+sub_parser_name = sys.argv[1]
+
+if sub_parser_name == 'init':
+    init_parser()
+elif sub_parser_name == 'env':
+    env_parser(args, parser_env)
+

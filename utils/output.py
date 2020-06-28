@@ -1,3 +1,5 @@
+from colorama import Fore, Style
+
 type_dict = {
     'info': '➡️',
     'warning': '⚠️',
@@ -6,10 +8,10 @@ type_dict = {
 }
 
 type_dict_plain = {
-    'info': '\033[34minfo\033[0m',
-    'warning': '\033[33mwarning\033[0m',
-    'error': '\033[31merror\033[0m',
-    'success': '\033[32msuccess\033[0m',
+    'info': Fore.BLUE + 'info' + Style.RESET_ALL,
+    'warning': Fore.YELLOW + 'warning' + Style.RESET_ALL,
+    'error': Fore.RED + 'error' + Style.RESET_ALL,
+    'success': Fore.GREEN + 'success' + Style.RESET_ALL,
 }
 
 notify_template = '{type} {message}'
