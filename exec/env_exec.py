@@ -1,9 +1,10 @@
 import json
 from utils.output import notify_print
-from init import config_file_name, check_backup_path
+from utils.path_validation_check import check_backup_path
+from utils.meta_params import config_file_name
 
 
-def env_parser(args, parser_env):
+def env_exec(args, parser_env):
     arg_reset = args.reset
     arg_set = args.set
     if not (arg_reset or arg_set):

@@ -1,11 +1,11 @@
 import os
 import json
 from utils.output import notify_print
+from utils.path_validation_check import check_root_path, check_backup_path
+from utils.meta_params import config_file_name
 
-config_file_name = 'config.json'
 
-
-def init_config():
+def init_exec():
     try:
         os.listdir().index(config_file_name)
         notify_print('warning', 'Configuration file already exists.')
@@ -32,24 +32,3 @@ def init_config():
             json.dump(config_dict, f, indent=2)
         notify_print('success', 'Initialization finished!')
 
-
-def check_root_path(root_path):
-    if not os.path.exists(root_path):
-        notify_print('error', 'Invalid path, try again.')
-        return False
-    else:
-        notify_print('success', 'root_path has been successfully set.')
-        return True
-
-
-def check_backup_path(backup_path):
-    if backup_path == '':
-        notify_print('info', 'There will be no backup folder.')
-        return True
-    else:
-        if not os.path.exists(backup_path):
-            notify_print('error', 'Invalid path, try again.')
-            return False
-        else:
-            notify_print('success', 'backup_path has been successfully set.')
-            return True
