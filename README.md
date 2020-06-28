@@ -77,11 +77,11 @@ colorama 0.4.3
 - Use the `import` instruation to import papers. In order to make better use of other functions, please place the `.bib` file with your paper, and make sure they have the same name (e.g. paper: some_name.pdf, bib file: some_name.bib). You could place them in a folder, like this
 
   ```
-  ─┬─papers_to_import
-   ├─paper0.bib
-   ├─paper0.pdf
-   ├─paper1.bib
-   └─paper1.pdf
+  papers_to_import
+  				 └─┬─paper0.bib
+             ├─paper0.pdf
+             ├─paper1.bib
+             └─paper1.pdf
   ```
 
   Then use the following instruction
