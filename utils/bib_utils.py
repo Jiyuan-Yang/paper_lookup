@@ -48,13 +48,3 @@ def bib_gen(bib_dict: dict) -> str:
 
 if __name__ == '__main__':
     print('>> test')
-    a = """\
-@article{vaswani2017attention,
-title={Attention is All you Need},
-author={Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, Lukasz and Polosukhin, Illia},
-pages={5998--6008},
-year={2017}}
-"""
-    print(bib_parser(a))
-    print(bib_gen(json.loads(bib_parser(a))))
-
