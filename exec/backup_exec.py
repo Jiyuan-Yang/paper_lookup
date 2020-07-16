@@ -11,6 +11,8 @@ def backup_exec():
         notify_print('error', 'Backup path do not exists.')
         exit(0)
     notify_print('info', 'Backing up files into {}'.format(backup_path))
+    notify_print('error', 'Backup module has been deprecated.')
+    exit(0)
     if os.path.exists(get_backup_path()):
         while True:
             user_choice = input(Fore.RED + 'We are going to REMOVE this folder: {}, continue [y/N]?'

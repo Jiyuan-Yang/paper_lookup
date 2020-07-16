@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A simple commend line tool to manage you papers. You could manage papers you've saved in your computer in a more efficient way based on this tool.
+A simple command line tool to manage you papers. You could manage papers you've saved in your computer in a more efficient way based on this tool.
 
 ## Environment
 
@@ -78,7 +78,7 @@ colorama 0.4.3
 
   ```
   papers_to_import
-  				 └─┬─paper0.bib
+           └─┬─paper0.bib
              ├─paper0.pdf
              ├─paper1.bib
              └─paper1.pdf
@@ -92,7 +92,7 @@ colorama 0.4.3
 
   This will import the papers into the root folder you've set during initialization
 
-- Then you could list or search paper by the `find` commend
+- Then you could list or search paper by the `find` command
 
   ```shell
   plup find # this will list all papers
@@ -101,24 +101,24 @@ colorama 0.4.3
       0 | paper_a                   | author0         | tag0;tag1
   ```
 
-- Use the `open` commend to open the paper
+- Use the `open` command to open the paper
 
   ```shell
   plup open 0 # open + paper_id
-  # this has been tested on macOS, which use the `open` commend in shell to open 
+  # this has been tested on macOS, which use the `open` command in shell to open 
   # the pdf file
-  # you may change it to the commend in you own OS
+  # you may change it to the command in you own OS
   ```
 
   You could find it in `paper_loopup/exec/open_exec.py`.
 
-- Use the `export` commend to export the bib file of the paper
+- Use the `export` command to export the bib file of the paper
 
   ```shell
   plup export 0 # export + paper_id
   ```
 
-- Use the `backup` commend to copy the root path of plup into the backup directory
+- Use the `backup` command to copy the root path of plup into the backup directory
 
   ```shell
   plup backup
