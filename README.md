@@ -2,7 +2,11 @@
 
 ## Introduction
 
-A simple command line tool to manage you papers. You could manage papers you've saved in your computer in a more efficient way based on this tool.
+A simple command line tool to manage your papers. You could manage papers saved in your computer in a more efficient way with the help of this tool.
+
+## Release Notes
+
+- 1.0.0 Release with basic functions.
 
 ## Environment
 
