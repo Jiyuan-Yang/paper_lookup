@@ -1,7 +1,7 @@
 import os
 import json
 
-config_file_name = '/Users/yangjiyuan/Desktop/projects/paper_lookup/config.json'
+config_file_name = os.path.join(os.path.abspath(os.curdir), 'config.json')
 db_file_name = 'db.json'
 
 
