@@ -1,8 +1,8 @@
 import os
 import json
-from utils.output import notify_print
-from utils.path_validation_check import check_root_path, check_backup_path
-from utils.meta_params import config_file_name, db_file_name
+from core.utils.print_function import notify_print
+from core.utils.path_validation_check import check_root_path
+from core.config.meta_params import config_file_name, db_file_name
 
 
 def init_exec():

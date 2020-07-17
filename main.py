@@ -1,13 +1,13 @@
 import sys
 import argparse
-from exec.init_exec import init_exec
-from exec.env_exec import env_exec
-from exec.import_exec import import_exec
-from exec.find_exec import find_exec
-from exec.open_exec import open_exec
-from exec.export_exec import export_exec
+from core.performers.init import init_exec
+from core.performers.env import env_exec
+from core.performers.load import import_exec
+from core.performers.find import find_exec
+from core.performers.open import open_exec
+from core.performers.export import export_exec
 
-from utils.output import notify_print
+from core.utils.print_function import notify_print
 
 
 parser = argparse.ArgumentParser(description='Paper Lookup, an easier way to manage your papers.')
@@ -64,15 +64,15 @@ sub_parser_name = sys.argv[1]
 if sub_parser_name == 'init':
     init_exec()
 elif sub_parser_name == 'env':
-    env_exec(args, parser_env)
+    env_exec(args.reset, args.set)
 elif sub_parser_name == 'import':
-    import_exec(args)
+    import_exec(args.no_bib, args.folder, args.single, args.tags)
 elif sub_parser_name == 'find':
-    find_exec(args)
+    find_exec(args.name, args.author, args.tags, args.intersect, args.union)
 elif sub_parser_name == 'open':
-    open_exec(args)
+    open_exec(int(args.id))
 elif sub_parser_name == 'export':
-    export_exec(args)
+    export_exec(int(args.id))
 else:
     if args.version:
         print('Paper Lookup version 1.0.0')

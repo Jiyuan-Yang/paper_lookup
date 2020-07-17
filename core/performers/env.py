@@ -1,16 +1,13 @@
 import json
-from utils.output import notify_print
-from utils.path_validation_check import check_backup_path
-from utils.meta_params import config_file_name
+from core.utils.print_function import notify_print
+from core.utils.path_validation_check import check_backup_path
+from core.config.meta_params import config_file_name
 
 
-def env_exec(args, parser_env):
-    arg_reset = args.reset
-    arg_set = args.set
+def env_exec(arg_reset, arg_set):
     if not (arg_reset or arg_set):
         notify_print('error', 'There should be either --reset [env arg] '
                               'or --set [env arg] [new value]')
-        parser_env.print_help()
         exit(0)
     else:
         if arg_reset:

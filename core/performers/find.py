@@ -1,11 +1,8 @@
-from utils.meta_params import get_db_list
-from utils.output import find_result_print
+from core.config.meta_params import get_db_list
+from core.utils.print_function import find_result_print
 
 
-def find_exec(args):
-    name = args.name
-    author = args.author
-    tags = args.tags
+def find_exec(name, author, tags, is_intersect, is_union):
     if name:
         name = name.split(';')
     if author:
@@ -13,8 +10,6 @@ def find_exec(args):
     if tags:
         tags = tags.split(';')
     # print(name, author, tags)
-    is_intersect = args.intersect
-    is_union = args.union
     db_list = get_db_list()
     all_ok_list = []
     for item in db_list:

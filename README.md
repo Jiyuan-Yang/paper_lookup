@@ -118,12 +118,6 @@ colorama 0.4.3
   plup export 0 # export + paper_id
   ```
 
-- Use the `backup` command to copy the root path of plup into the backup directory
-
-  ```shell
-  plup backup
-  ```
-
 - For more information, use `-h` flag, for example
 
   ```shell
@@ -165,4 +159,5 @@ colorama 0.4.3
   ```
 
   
+
 

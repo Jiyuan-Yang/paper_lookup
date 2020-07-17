@@ -1,17 +1,13 @@
 import os
 import shutil
-from utils.output import notify_print
-from utils.meta_params import get_root_path, get_db_list, update_db_list
-from utils.bib_utils import bib_parser
+from core.utils.print_function import notify_print
+from core.config.meta_params import get_root_path, get_db_list, update_db_list
+from core.utils.bib_parser import bib_parser
 
 
-def import_exec(args):
+def import_exec(no_bib, folder, single, tags):
     db_list = get_db_list()
     id_cnt = len(db_list)
-    no_bib = args.no_bib  # set --no-bib flag to eliminate warnings
-    folder = args.folder
-    single = args.single
-    tags = args.tags
     root_path = get_root_path()
     if not (folder or single):
         notify_print('error', 'Please set either a folder or a single file to import')

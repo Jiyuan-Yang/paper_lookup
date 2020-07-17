@@ -1,5 +1,5 @@
 import os
-from utils.output import notify_print
+from core.utils.print_function import notify_print
 
 
 def check_root_path(root_path):

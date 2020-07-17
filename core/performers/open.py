@@ -1,15 +1,14 @@
 import os
 import platform
-from utils.meta_params import get_db_list, get_root_path
-from utils.output import notify_print
+from core.config.meta_params import get_db_list, get_root_path
+from core.utils.print_function import notify_print
 
 os_mac = 0
 os_windows = 1
 os_linux = 2
 
 
-def open_exec(args):
-    paper_id = args.id
+def open_exec(paper_id):
     for item in get_db_list():
         if item['id'] == int(paper_id):
             filename = item['filename']
@@ -20,7 +19,7 @@ def open_exec(args):
                 os.system(path)
             else:
                 notify_print('error', 'You have to set your own '
-                                      'commend in exec/open_exec.py on Linux')
+                                      'commend in performers/open.py on Linux')
                 exit(0)
             break
 
