@@ -1,5 +1,6 @@
 import sys
 import argparse
+
 from core.performers.init import init_exec
 from core.performers.env import env_exec
 from core.performers.load import import_exec
@@ -36,17 +37,9 @@ parser_import.add_argument('-t', '--tags', help='add tags for the papers, please
 parser_import.add_argument('-nb', '--no-bib', action='store_true',
                            help='if there is no bib file, use this flag')
 
-parser_find.add_argument('-n', '--name', help='find by name (title)')
+parser_find.add_argument('-t', '--title', help='find by title')
 parser_find.add_argument('-a', '--author', help='find by author')
-parser_find.add_argument('-t', '--tags', help='find by tag')
-parser_find.add_argument('-i', '--intersect', action='store_true',
-                         help='intersect add the args, '
-                              'if there is only one arg, '
-                              'this flag will be ignored')
-parser_find.add_argument('-u', '--union', action='store_true',
-                         help='intersect add the args, '
-                              'if there is only one arg, '
-                              'this flag will be ignored')
+parser_find.add_argument('-g', '--tags', help='find by tag')
 
 parser_open.add_argument('id', help='the id of paper to open')
 
@@ -68,7 +61,7 @@ elif sub_parser_name == 'env':
 elif sub_parser_name == 'import':
     import_exec(args.no_bib, args.folder, args.single, args.tags)
 elif sub_parser_name == 'find':
-    find_exec(args.name, args.author, args.tags, args.intersect, args.union)
+    find_exec(args.title, args.author, args.tags)
 elif sub_parser_name == 'open':
     open_exec(int(args.id))
 elif sub_parser_name == 'export':

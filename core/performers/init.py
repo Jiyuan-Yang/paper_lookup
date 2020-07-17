@@ -2,11 +2,11 @@ import os
 import json
 from core.utils.print_function import notify_print
 from core.utils.path_validation_check import check_root_path
-from core.config.meta_params import config_file_name, db_file_name
+from core.config.meta_params import config_file_path, db_file_name
 
 
 def init_exec():
-    if os.path.exists(config_file_name):
+    if os.path.exists(config_file_path):
         while True:
             notify_print('warning',
                          'Configuration file already exists. '
@@ -29,10 +29,12 @@ def init_exec():
         'root_path': root_path,
     }
 
-    with open(config_file_name, 'w') as f:
+    with open(config_file_path, 'w') as f:
         json.dump(config_dict, f, indent=2)
 
     os.mkdir(os.path.join(root_path, 'bib_backup'))
     with open(os.path.join(root_path, db_file_name), 'w') as f:
         json.dump([], f)
+
+    notify_print('info', 'Configuration file located at: ' + config_file_path)
     notify_print('success', 'Initialization finished!')

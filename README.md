@@ -30,17 +30,6 @@ colorama 0.4.3
   conda install colorama
   ```
 
-- In `paper_lookup/meta_params.py`, you need to change `config_file_name` to the *absolute* path of your own directory to place the configuration file.
-
-  ```python
-  import os
-  import json
-  
-  # change the following line to ‘/your/path/paper_lookup/config.json’
-  config_file_name = '/Users/yangjiyuan/Desktop/projects/paper_lookup/config.json'
-  db_file_name = 'db.json'
-  ```
-
 - In order to use it in a more efficient way, you could add an alias in the configuration file of your shell (e.g. ~/.bashrc ~/.zshrc etc.)
 
   ```shell
@@ -49,7 +38,7 @@ colorama 0.4.3
   # add the following alias
   alias plup="python /your/path/paper_lookup/main.py"
   ```
-
+  
 - Check if this tool works
 
   ```shell
@@ -68,20 +57,16 @@ colorama 0.4.3
 
   Following the steps the set the root folder and backup folder. All the papers and relative files will be placed in the root folder, and backup folder is an option.
 
-- You could use `env` to reset or change the path of you backup folder
+- You could use `env` to reset or change environment parameters.
 
-  ``` 
-  plup env --reset backup_path
-  ```
-
-- Use the `import` instruation to import papers. In order to make better use of other functions, please place the `.bib` file with your paper, and make sure they have the same name (e.g. paper: some_name.pdf, bib file: some_name.bib). You could place them in a folder, like this
+- Use the `import` instruction to import papers. In order to make better use of other functions, please place the `.bib` file with your paper, and make sure they have the same name (e.g. paper: some_name.pdf, bib file: some_name.bib). You could place them in a folder, like this
 
   ```
-  papers_to_import
-           └─┬─paper0.bib
-             ├─paper0.pdf
-             ├─paper1.bib
-             └─paper1.pdf
+  papers_directory
+   ├─paper0.bib
+   ├─paper0.pdf
+   ├─paper1.bib
+   └─paper1.pdf
   ```
 
   Then use the following instruction
@@ -96,7 +81,7 @@ colorama 0.4.3
 
   ```shell
   plup find # this will list all papers
-  plup find -n 'keyword in title' -a 'author name' -t 'tag0;tag1'
+  plup find -n 'keyword && (in || title)' -a 'author && name' -t 'tag0 || tag1'
    id   | title                     | author          | tags            
       0 | paper_a                   | author0         | tag0;tag1
   ```
@@ -138,7 +123,6 @@ colorama 0.4.3
                           and use '' to quote add the keywords
       open                open paper
       export              export bib files
-      backup              backup the whole root directory
   
   optional arguments:
     -h, --help            show this help message and exit
@@ -157,7 +141,7 @@ colorama 0.4.3
                           and don't forget to use '' toquote the args
     -nb, --no-bib         if there is no bib file, use this flag
   ```
-
   
+
 
 

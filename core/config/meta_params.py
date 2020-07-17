@@ -1,17 +1,17 @@
 import os
 import json
 
-config_file_name = os.path.join(os.path.abspath(os.curdir), 'config.json')
+config_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'config.json')
 db_file_name = 'db.json'
 
 
 def get_root_path() -> str:
-    with open(config_file_name) as f:
+    with open(config_file_path) as f:
         return json.load(f)['root_path']
 
 
 def get_backup_path() -> str:
-    with open(config_file_name) as f:
+    with open(config_file_path) as f:
         return json.load(f)['backup_path']
 
 

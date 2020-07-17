@@ -27,18 +27,15 @@ def notify_print(notify_type, message, use_plain=True, end='\n'):
     ), end=end)
 
 
-def find_result_print(find_result_list: list, **kwargs):
-    name: list = kwargs.get('name', None)
-    author: list = kwargs.get('author', None)
-    tags: list = kwargs.get('tags', None)
+def find_result_print(find_result_list: list):
     print(' {:4} | {:25} | {:15} | {:15} '.format('id', 'title', 'author', 'tags'))
     for item in find_result_list:
-        item_id, item_name, item_author, item_tags = item
-        item_name = chop_max_len(item_name, 25)
+        item_id, item_title, item_author, item_tags = item
+        item_title = chop_max_len(item_title, 25)
         item_author = chop_max_len(item_author, 15)
         item_tags = chop_max_len(';'.join(item_tags), 15)
         print(' {:4} | {:25} | {:15} | {:15} '.format(
-            item_id, item_name, item_author, item_tags))
+            item_id, item_title, item_author, item_tags))
 
 
 def chop_max_len(string: str, max_len: int) -> str:
