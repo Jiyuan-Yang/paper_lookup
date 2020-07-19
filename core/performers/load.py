@@ -5,19 +5,13 @@ from core.config.meta_params import get_root_path, get_db_list, update_db_list
 from core.utils.bib_parser import bib_parser
 
 
-def import_exec(no_bib, folder, single, tags):
+def import_exec(folder, single, tags):
     db_list = get_db_list()
     id_cnt = len(db_list)
     root_path = get_root_path()
     if not (folder or single):
         notify_print('error', 'Please set either a folder or a single file to import')
         exit(0)
-    if no_bib:
-        notify_print('warning', '--no-bib flag has been set, there will be no more '
-                                'warnings about the absent bib files')
-        notify_print('warning', 'bib file is important to keep the info of a paper, '
-                                'and we use bib file to search papers in the local database. '
-                                'Therefore, we do NOT recommend to use this flag.')
     if not os.path.exists(root_path):
         notify_print('error', 'Folder at root path does not exist.')
         exit(0)
@@ -59,9 +53,8 @@ def import_single(folder: str, file: str, root_path: str) -> dict or None:
     notify_print('info', f'Importing {file}')
     bib_path = os.path.join(folder, os.path.splitext(file)[0] + '.bib')
     if not os.path.exists(bib_path):
-        notify_print('warning', f'File {file} does not have a corresponding bib file.')
-        notify_print('warning', f'Using the original file name {file}.')
-        shutil.copy(os.path.join(folder, file), os.path.join(root_path, file))
+        notify_print('warning', f'File {file} does not have a corresponding bib file, thus'
+                                f'it will be ignored.')
         return None
     else:
         with open(bib_path) as f:

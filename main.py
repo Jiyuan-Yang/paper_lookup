@@ -34,8 +34,6 @@ parser_import.add_argument('-f', '--folder', help='import all papers in a folder
 parser_import.add_argument('-t', '--tags', help='add tags for the papers, please use \';\'to'
                                                 'split tags, and don\'t forget to use \'\' to'
                                                 'quote the args')
-parser_import.add_argument('-nb', '--no-bib', action='store_true',
-                           help='if there is no bib file, use this flag')
 
 parser_find.add_argument('-t', '--title', help='find by title')
 parser_find.add_argument('-a', '--author', help='find by author')
@@ -59,7 +57,7 @@ if sub_parser_name == 'init':
 elif sub_parser_name == 'env':
     env_exec(args.reset, args.set)
 elif sub_parser_name == 'import':
-    import_exec(args.no_bib, args.folder, args.single, args.tags)
+    import_exec(args.folder, args.single, args.tags)
 elif sub_parser_name == 'find':
     find_exec(args.title, args.author, args.tags)
 elif sub_parser_name == 'open':

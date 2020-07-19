@@ -11,7 +11,8 @@ def env_exec(arg_reset, arg_set):
         exit(0)
     else:
         if arg_reset:
-            could_be_reset = ['backup_path']
+            could_be_reset = []
+            # TODO: Add more environment args
             if arg_reset not in could_be_reset:
                 notify_print('error', f'{arg_reset} could not be reset')
                 exit(0)
@@ -23,15 +24,14 @@ def env_exec(arg_reset, arg_set):
                     json.dump(env_dict, f, indent=2)
                 notify_print('success', f'{arg_reset} has been reset')
         if arg_set:
-            could_be_set = ['backup_path']
+            could_be_set = []
             if arg_set[0] not in could_be_set:
                 notify_print('error', f'{arg_set[0]} could not be set')
                 exit(0)
             else:
-                if arg_set[0] == 'backup_path':
-                    if not check_backup_path(arg_set[1]):
-                        notify_print('error', f'{arg_set[1]} is not a valid path')
-                        exit(0)
+                # TODO: Add more environment args
+                if True:
+                    pass
                 else:
                     notify_print('error', f'{arg_set[0]} could not be set')
                     exit(0)
