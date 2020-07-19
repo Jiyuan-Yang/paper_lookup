@@ -1,6 +1,6 @@
-from core.config.meta_params import get_db_list
-from core.utils.print_function import find_result_print
-from core.utils.condition_parser import condition_check
+from config.meta_params import get_db_list
+from utils.output_methods import find_result_print
+from utils.parser.condition_parser import condition_check
 
 
 def find_exec(title, author, tags):
@@ -20,4 +20,3 @@ def find_exec(title, author, tags):
             continue
         all_ok_list.append([item_id, item_name, item_author, item_tags])
     find_result_print(all_ok_list)
-

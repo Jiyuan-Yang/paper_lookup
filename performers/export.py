@@ -1,5 +1,5 @@
-from core.config.meta_params import get_db_list
-from core.utils.bib_parser import bib_gen
+from config.meta_params import get_db_list
+from utils.parser.bib_parser import bib_gen
 
 
 def export_exec(paper_id):

@@ -10,9 +10,9 @@ def get_root_path() -> str:
         return json.load(f)['root_path']
 
 
-def get_backup_path() -> str:
+def get_shell_line_length() -> int:
     with open(config_file_path) as f:
-        return json.load(f)['backup_path']
+        return int(json.load(f)['shell_line_length'])
 
 
 def get_db_list() -> list:

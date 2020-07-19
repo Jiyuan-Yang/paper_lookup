@@ -1,7 +1,7 @@
 import os
 import platform
-from core.config.meta_params import get_db_list, get_root_path
-from core.utils.print_function import notify_print
+from config.meta_params import get_db_list, get_root_path
+from utils.output_methods import notify_print
 
 os_mac = 0
 os_windows = 1

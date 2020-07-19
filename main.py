@@ -1,14 +1,14 @@
 import sys
 import argparse
 
-from core.performers.init import init_exec
-from core.performers.env import env_exec
-from core.performers.load import import_exec
-from core.performers.find import find_exec
-from core.performers.open import open_exec
-from core.performers.export import export_exec
+from performers.init import init_exec
+from performers.env import env_exec
+from performers.load import import_exec
+from performers.find import find_exec
+from performers.open import open_exec
+from performers.export import export_exec
 
-from core.utils.print_function import notify_print
+from utils.output_methods import notify_print
 
 
 parser = argparse.ArgumentParser(description='Paper Lookup, an easier way to manage your papers.')

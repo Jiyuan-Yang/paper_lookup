@@ -1,5 +1,5 @@
 import re
-from core.utils.print_function import notify_print
+from utils.output_methods import notify_print
 
 
 def bib_parser(bib_string: str) -> dict:
