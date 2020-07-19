@@ -1,4 +1,4 @@
-from config.meta_params import get_db_list
+from configs.meta_params import get_db_list, get_shell_line_length
 from utils.output_methods import find_result_print
 from utils.parser.condition_parser import condition_check
 
@@ -19,4 +19,4 @@ def find_exec(title, author, tags):
         if tags and not condition_check(item_tags_str, tags):
             continue
         all_ok_list.append([item_id, item_name, item_author, item_tags])
-    find_result_print(all_ok_list)
+    find_result_print(all_ok_list, get_shell_line_length())

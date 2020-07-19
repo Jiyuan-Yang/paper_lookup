@@ -9,7 +9,7 @@ def get_bool_choice(notify_type, message, default_choice=False) -> bool:
         message += ' [y/N]'
     while True:
         notify_print(notify_type, message, end='')
-        choice = input()
+        choice = input().strip()
         if default_choice:
             if choice == '' or choice.lower() == 'y':
                 return True
@@ -25,8 +25,8 @@ def get_bool_choice(notify_type, message, default_choice=False) -> bool:
 def get_string_input(message, validation_function, default_value: None or str) -> str:
     while True:
         if default_value is not None:
-            message += f' [default: #{default_value}]'
-        user_input = input(message)
+            message += f' [default: {default_value}]'
+        user_input = input(message).strip()
         if user_input == '':
             return default_value
         if validation_function(user_input):

@@ -7,6 +7,8 @@ A simple command line tool to manage your papers. You could manage papers saved 
 ## Release Notes
 
 - 1.0.0 Release with basic functions.
+- 1.0.1 Remove redundant codes, bug fix and modification in init module
+- 1.1.0 Add config label shell_line_length, bug fix and structure modification
 
 ## Environment
 

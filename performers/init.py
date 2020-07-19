@@ -1,9 +1,9 @@
 import os
 import json
 from utils.output_methods import notify_print
-from utils.validation_check import check_root_path, check_integer
-from config.meta_params import config_file_path, db_file_name
 from utils.input_methods import get_bool_choice, get_string_input
+from configs.config_labels import l_root_path, l_shell_line_length
+from configs.meta_params import config_file_path, db_file_name
 
 
 def init_exec():
@@ -16,21 +16,21 @@ def init_exec():
             return
     notify_print('info', 'Initializing configuration file.')
 
-    root_path = get_string_input(
+    root_path = l_root_path.get_type_transfer_func()(get_string_input(
         'Choose a folder to store the files (absolute path):\n',
-        check_root_path,
+        l_root_path.get_validation_check_func(),
         default_value=None
-    )
+    ))
 
-    shell_line_length = int(get_string_input(
+    shell_line_length = l_shell_line_length.get_type_transfer_func()(get_string_input(
         'Choose the length of line of your shell: ',
-        check_integer,
+        l_shell_line_length.get_validation_check_func(),
         default_value='70'
     ))
 
     config_dict = {
-        'root_path': root_path,
-        'shell_line_length': shell_line_length
+        l_root_path.get_name(): root_path,
+        l_shell_line_length.get_name(): shell_line_length
     }
 
     with open(config_file_path, 'w') as f:
@@ -42,7 +42,7 @@ def init_exec():
         os.mkdir(os.path.join(root_path, 'bib_backup'))
 
     if os.path.exists(os.path.join(root_path, db_file_name)):
-        notify_print('warning', f'File \'#{db_file_name}\' has already exists.')
+        notify_print('warning', f'File \'{db_file_name}\' has already exists.')
     else:
         with open(os.path.join(root_path, db_file_name), 'w') as f:
             json.dump([], f)

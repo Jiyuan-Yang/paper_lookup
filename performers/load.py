@@ -1,8 +1,8 @@
 import os
 import shutil
 from utils.output_methods import notify_print
-from config.meta_params import get_root_path, get_db_list, update_db_list
-from utils.parser import bib_parser
+from configs.meta_params import get_root_path, get_db_list, update_db_list
+from utils.parser.bib_parser import bib_parser
 
 
 def import_exec(folder, single, tags):

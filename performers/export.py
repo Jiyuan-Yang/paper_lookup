@@ -1,4 +1,4 @@
-from config.meta_params import get_db_list
+from configs.meta_params import get_db_list
 from utils.parser.bib_parser import bib_gen
 
 

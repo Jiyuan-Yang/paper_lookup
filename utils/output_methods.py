@@ -27,14 +27,20 @@ def notify_print(notify_type, message, use_plain=True, end='\n'):
     ), end=end)
 
 
-def find_result_print(find_result_list: list):
-    print(' {:4} | {:25} | {:15} | {:15} '.format('id', 'title', 'author', 'tags'))
+def find_result_print(find_result_list: list, shell_line_length):
+    id_len = int(shell_line_length * (5 / 60))
+    title_len = int(shell_line_length * (30 / 60))
+    author_len = int(shell_line_length * (15 / 60))
+    tags_len = int(shell_line_length * (10 / 60))
+    output_format_string = ' {:' + str(id_len) + '} | {:' + str(title_len) + '} | {:' + str(
+        author_len) + '} | {:' + str(tags_len) + '} '
+    print(output_format_string.format('id', 'title', 'author', 'tags'))
     for item in find_result_list:
         item_id, item_title, item_author, item_tags = item
-        item_title = chop_max_len(item_title, 25)
-        item_author = chop_max_len(item_author, 15)
-        item_tags = chop_max_len(';'.join(item_tags), 15)
-        print(' {:4} | {:25} | {:15} | {:15} '.format(
+        item_title = chop_max_len(item_title, title_len)
+        item_author = chop_max_len(item_author, author_len)
+        item_tags = chop_max_len(';'.join(item_tags), tags_len)
+        print(output_format_string.format(
             item_id, item_title, item_author, item_tags))
 
 

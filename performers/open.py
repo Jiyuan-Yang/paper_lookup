@@ -1,6 +1,6 @@
 import os
 import platform
-from config.meta_params import get_db_list, get_root_path
+from configs.meta_params import get_db_list, get_root_path
 from utils.output_methods import notify_print
 
 os_mac = 0
